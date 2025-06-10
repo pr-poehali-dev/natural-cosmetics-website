@@ -7,14 +7,14 @@ const Gallery = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1556228578-dd7c7044497b?w=500&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=400&fit=crop",
       description:
         "Описание продукта 1: Это натуральный крем, который увлажняет кожу и придает ей сияние.",
     },
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=500&h=400&fit=crop",
       description:
         "Описание продукта 2: Это маска для лица, которая очищает поры и смягчает кожу.",
     },
