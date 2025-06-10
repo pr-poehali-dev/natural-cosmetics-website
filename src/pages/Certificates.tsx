@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
-import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Certificates = () => {
   const certificates = [
@@ -7,17 +8,14 @@ const Certificates = () => {
       id: 1,
       image:
         "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=800&fit=crop",
-      title: "Сертификат органического производства",
-      description:
-        "Международный сертификат подтверждающий органическое происхождение всех ингредиентов",
+      description: "Сертификат экологической чистоты нашей продукции.",
     },
     {
       id: 2,
       image:
         "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=800&fit=crop",
-      title: "Сертификат качества ISO 22716",
       description:
-        "Стандарт качества косметической продукции, признанный во всем мире",
+        "Сертификат, подтверждающий естественность всех компонентов.",
     },
   ];
 
@@ -29,35 +27,44 @@ const Certificates = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4 font-montserrat">
-              Сертификаты качества
+              Наши сертификаты
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Наша продукция сертифицирована по международным стандартам
-              качества и безопасности
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-12">
             {certificates.map((certificate) => (
-              <Card
+              <div
                 key={certificate.id}
-                className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-lg shadow-md p-8"
               >
-                <div className="aspect-w-3 aspect-h-4">
+                <div className="flex flex-col md:flex-row items-center gap-8">
                   <img
                     src={certificate.image}
-                    alt={certificate.title}
-                    className="w-full h-96 object-cover"
+                    alt={`Сертификат ${certificate.id}`}
+                    className="w-full md:w-80 h-80 object-cover rounded-lg"
                   />
+                  <p className="text-lg text-gray-600 leading-relaxed flex-1">
+                    {certificate.description}
+                  </p>
                 </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-montserrat">
-                    {certificate.title}
-                  </h3>
-                  <p className="text-gray-600">{certificate.description}</p>
-                </div>
-              </Card>
+              </div>
             ))}
+          </div>
+
+          <div className="flex justify-center gap-6 mt-12">
+            <Link to="/">
+              <Button size="lg" variant="outline" className="px-8 py-3">
+                На главную
+              </Button>
+            </Link>
+            <Link to="/gallery">
+              <Button
+                size="lg"
+                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3"
+              >
+                Перейти на страницу 2
+              </Button>
+            </Link>
           </div>
         </div>
       </main>

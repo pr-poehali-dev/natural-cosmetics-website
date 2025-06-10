@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Gallery = () => {
   const products = [
@@ -7,17 +8,15 @@ const Gallery = () => {
       id: 1,
       image:
         "https://images.unsplash.com/photo-1556228578-dd7c7044497b?w=500&h=400&fit=crop",
-      title: "Увлажняющий крем для лица",
       description:
-        "Легкий крем с маслом жожоба и экстрактом алоэ вера. Идеально подходит для ежедневного ухода за кожей всех типов. Обеспечивает глубокое увлажнение и защиту от внешних воздействий.",
+        "Описание продукта 1: Это натуральный крем, который увлажняет кожу и придает ей сияние.",
     },
     {
       id: 2,
       image:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=400&fit=crop",
-      title: "Очищающая пенка с экстрактом ромашки",
       description:
-        "Мягкая пенка для деликатного очищения кожи лица. Содержит натуральные экстракты ромашки и календулы, которые успокаивают кожу и снимают раздражение. Подходит для чувствительной кожи.",
+        "Описание продукта 2: Это маска для лица, которая очищает поры и смягчает кожу.",
     },
   ];
 
@@ -29,37 +28,44 @@ const Gallery = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4 font-montserrat">
-              Наша продукция
+              Наши продукты
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Каждый продукт создан с использованием лучших природных
-              ингредиентов для вашей красоты и здоровья
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-12">
             {products.map((product) => (
-              <Card
+              <div
                 key={product.id}
-                className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-lg shadow-md p-8"
               >
-                <div className="aspect-w-16 aspect-h-12">
+                <div className="flex flex-col md:flex-row items-center gap-8">
                   <img
                     src={product.image}
-                    alt={product.title}
-                    className="w-full h-80 object-cover"
+                    alt={`Продукт ${product.id}`}
+                    className="w-full md:w-80 h-60 object-cover rounded-lg"
                   />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-montserrat">
-                    {product.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed flex-1">
                     {product.description}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
+          </div>
+
+          <div className="flex justify-center gap-6 mt-12">
+            <Link to="/">
+              <Button size="lg" variant="outline" className="px-8 py-3">
+                На главную
+              </Button>
+            </Link>
+            <Link to="/certificates">
+              <Button
+                size="lg"
+                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3"
+              >
+                Перейти на страницу 3
+              </Button>
+            </Link>
           </div>
         </div>
       </main>
